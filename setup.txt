@@ -1,0 +1,13 @@
+mycamera — განახლებული Admin პროექტი
+
+Netlify-ზე ატვირთვა:
+1. ZIP ამოარქივე კომპიუტერში.
+2. Netlify-ში გახსენი პროექტი და Deploys გვერდზე ატვირთე ამ საქაღალდის შიგთავსი (სადაც index.html, admin.html და netlify.toml პირდაპირ ჩანს). სასურველია Git repository-დან deploy, რადგან საჭიროა Netlify Functions.
+3. Project configuration > Environment variables-ში შექმენი:
+   ADMIN_PASSWORD = შენი არჩეული Admin პაროლი
+   ADMIN_SECRET = გრძელი შემთხვევითი საიდუმლო (მინიმუმ 32 სიმბოლო)
+   ორივეზე მონიშნე Contains secret values.
+4. შეინახე და გაუშვი ახალი deploy.
+5. გახსენი /admin.html და შედი ADMIN_PASSWORD-ით.
+
+შენიშვნა: Netlify Drop-ის უბრალო static upload შესაძლოა ფუნქციებს არ აამუშაოს; ეს პროექტი უნდა დაიდეპლოის Netlify Functions-ის მხარდაჭერით (Git-ით ან Netlify CLI-ით). ცვლადების შექმნა მარტო საკმარისი არ არის.

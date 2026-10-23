@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ka"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mycamera — კამერები</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f6fa;color:#111827}.wrap{max-width:1150px;margin:auto;padding:0 18px}
+header{background:#101323;color:#fff}.top{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}.logo{font-size:30px;font-weight:900}.logo span{color:#d946ef}nav{display:flex;gap:22px}nav a{color:#fff;text-decoration:none}
+.hero{padding:60px 0;background:linear-gradient(135deg,#111827,#4c1d95);color:white}.hero h1{font-size:clamp(32px,5vw,46px);margin:0 0 12px}.hero p{font-size:19px;line-height:1.6;max-width:650px;color:#eadcff}.btn{border:0;background:#c026d3;color:white;padding:12px 18px;border-radius:10px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
+section{padding:40px 0}h2{font-size:30px}.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 28px #00000010}.product img{width:100%;height:300px;object-fit:contain;background:#fff}.info{padding:20px}.price{font-size:25px;font-weight:900;margin:12px 0}.tag{color:#86198f;background:#f3e8ff;padding:6px 9px;border-radius:8px;font-size:13px;font-weight:800}.desc{color:#667085;line-height:1.5}footer{background:#0b1020;color:#9ca3af;padding:28px 0}
+@media(max-width:700px){nav{display:none}.products{grid-template-columns:1fr}.top{flex-wrap:wrap;padding-top:12px;padding-bottom:12px}}
+</style></head><body>
+<header><div class="wrap top"><div class="logo">my<span>camera</span></div><nav><a href="#products">პროდუქტები</a><a href="#about">ჩვენ შესახებ</a><a href="#contact">კონტაქტი</a></nav><a class="btn" href="/admin.html">Admin</a></div></header>
+<section class="hero"><div class="wrap"><h1>უსაფრთხოება ყოველთვის შენთან</h1><p>4G და Wi‑Fi უსაფრთხოების კამერები სახლის, აგარაკისა და ბიზნესისთვის.</p><a class="btn" href="#products">პროდუქტების ნახვა</a></div></section>
+<section id="products"><div class="wrap"><h2>პროდუქტები</h2><div class="products" id="products-list"><p>პროდუქტები იტვირთება…</p></div></div></section>
+<section id="about"><div class="wrap"><h2>mycamera</h2><p>უსაფრთხოების ტექნიკა ონლაინ.</p></div></section>
+<section id="contact"><div class="wrap"><h2>კონტაქტი</h2><p>599 99 70 97</p><a class="btn" href="https://wa.me/995599997097">WhatsApp</a> <a class="btn" href="tel:+995599997097">დარეკვა</a></div></section>
+<footer><div class="wrap">© 2026 mycamera</div></footer>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+(async()=>{const el=document.getElementById('products-list');try{const r=await fetch('/.netlify/functions/products');const items=await r.json();if(!Array.isArray(items)||!items.length){el.innerHTML='<p>პროდუქტები მალე დაემატება.</p>';return}el.innerHTML=items.map(p=>`<article class="card product"><img src="${esc(p.image||'camera-4g.jpg')}" alt="${esc(p.name)}"><div class="info"><span class="tag">${esc(p.category||'კამერა')}</span><h3>${esc(p.name)}</h3><p class="desc">${esc(p.description||'')}</p><div class="price">${esc(p.price)} ₾</div><a class="btn" href="https://wa.me/995599997097?text=${encodeURIComponent('გამარჯობა, მაინტერესებს: '+p.name)}">შეკვეთა WhatsApp-ზე</a></div></article>`).join('')}catch(e){el.innerHTML='<p>პროდუქტების ჩატვირთვა ვერ მოხერხდა.</p>'}})();
+</script></body></html>
